@@ -1,0 +1,14 @@
+torch
+torchvision
+transformers
+datasets
+pytorch-lightning
+peft
+gradio
+fastapi
+uvicorn
+lightning
+scikit-learn
+Pillow
+tqdm
+
