@@ -1,1 +1,12 @@
+__pycache__/
+*.pyc
+*.pt
+*.pkl
 data/
+
+checkpoints/
+scripts/lightning_logs/
+scripts/models/
+scripts/results/
+
+.gradio/certificate.pem
