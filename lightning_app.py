@@ -9,7 +9,7 @@ class TrainingWork(LightningWork):
 class ServingWork(LightningWork):
     def run(self):
         import subprocess
-        subprocess.run("python app/main.py", shell=True)
+        subprocess.run("python main.py", shell=True)
 
 class VQAFlow(LightningFlow):
     def __init__(self):
