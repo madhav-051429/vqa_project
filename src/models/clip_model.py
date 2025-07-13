@@ -18,34 +18,34 @@ class CLIPFineTuner(pl.LightningModule):
         attention_mask = batch['attention_mask']
         pixel_values = batch['pixel_values']
         
-        # Extract question and answer inputs
+       
         question_input_ids = input_ids[:, 0, :]
         question_attention_mask = attention_mask[:, 0, :]
         answer_input_ids = input_ids[:, 1, :]
         answer_attention_mask = attention_mask[:, 1, :]
         
-        # Process question with images
+        
         question_outputs = self.model(
             input_ids=question_input_ids, 
             attention_mask=question_attention_mask, 
             pixel_values=pixel_values
         )
         
-        # Process answer using get_text_features instead of direct call
+        
         answer_embeds = self.model.get_text_features(
             input_ids=answer_input_ids,
             attention_mask=answer_attention_mask
         )
         
-        # Get embeddings
+        
         image_embeds = question_outputs.image_embeds
         question_embeds = question_outputs.text_embeds
         
-        # Calculate similarities
+       
         image_question_similarity = F.cosine_similarity(image_embeds, question_embeds)
         image_answer_similarity = F.cosine_similarity(image_embeds, answer_embeds)
         
-        # Compute contrastive loss
+        
         loss = -torch.mean(image_answer_similarity - image_question_similarity + 0.1)
         self.log('train_loss', loss, prog_bar=True)
         
@@ -56,34 +56,34 @@ class CLIPFineTuner(pl.LightningModule):
         attention_mask = batch['attention_mask']
         pixel_values = batch['pixel_values']
         
-        # Extract question and answer inputs
+        
         question_input_ids = input_ids[:, 0, :]
         question_attention_mask = attention_mask[:, 0, :]
         answer_input_ids = input_ids[:, 1, :]
         answer_attention_mask = attention_mask[:, 1, :]
         
-        # Process question with images
+        
         question_outputs = self.model(
             input_ids=question_input_ids, 
             attention_mask=question_attention_mask, 
             pixel_values=pixel_values
         )
         
-        # Process answer using get_text_features
+        
         answer_embeds = self.model.get_text_features(
             input_ids=answer_input_ids,
             attention_mask=answer_attention_mask
         )
         
-        # Get embeddings
+        
         image_embeds = question_outputs.image_embeds
         question_embeds = question_outputs.text_embeds
         
-        # Calculate similarities
+        
         image_question_similarity = F.cosine_similarity(image_embeds, question_embeds)
         image_answer_similarity = F.cosine_similarity(image_embeds, answer_embeds)
         
-        # Compute validation loss
+        
         val_loss = -torch.mean(image_answer_similarity - image_question_similarity + 0.1)
         self.log('val_loss', val_loss, prog_bar=True)
         
