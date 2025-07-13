@@ -31,5 +31,5 @@ def create_gradio_interface():
         title="Visual Question Answering System",
         description="Upload an image and ask a question about it. The system will analyze the image and provide an answer."
     )
-    return interface.queue()  # Adding queue() helps with multiple users
+    return interface.queue()  
 
