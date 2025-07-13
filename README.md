@@ -217,23 +217,6 @@ python -m pytest tests/ -v
 - [VQA v2 Dataset](https://visualqa.org/)
 - [Lightning AI Documentation](https://lightning.ai/docs/)
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- OpenAI for CLIP
-- Mistral AI for Mistral-7B
-- Microsoft for LoRA
-- Lightning AI for the platform
-- VQA Dataset creators
-
-## 📧 Contact
-
-**Madhav** - madhav.051429@example.com
-
-Project Link: [https://github.com/madhav-051429/vqa_project](https://github.com/madhav-051429/vqa_project)
 
 ---
 
