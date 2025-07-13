@@ -4,16 +4,7 @@ import torch
 import os
 
 def setup_llama_model(token=None):
-    """Set up the LLaMA model with LoRA configuration.
-    
-    Args:
-        token (str, optional): Hugging Face access token for gated or private models.
-            Can also be set via HF_TOKEN environment variable.
-    
-    Returns:
-        tuple: (lora_model, tokenizer)
-    """
-    # Get token from environment variable if not provided
+
     if token is None:
         token = os.environ.get("HF_TOKEN")
 
@@ -28,12 +19,12 @@ def setup_llama_model(token=None):
         "mistralai/Mistral-7B-v0.1",
         quantization_config=bnb_config, 
         device_map="auto",
-        token=token  # Add token for model access
+        token=token  
     )
     
     tokenizer = AutoTokenizer.from_pretrained(
         "mistralai/Mistral-7B-v0.1",
-        token=token  # Add token for tokenizer access
+        token=token  
     )
     
     tokenizer.pad_token = tokenizer.eos_token
