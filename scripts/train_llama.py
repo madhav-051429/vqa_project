@@ -2,8 +2,6 @@ from src.models.llama_model import setup_llama_model, LlamaVQADataset
 from transformers import Trainer, TrainingArguments
 import os
 
-# Get token from environment variable or set directly
-# Directly setting the token for immediate use
 token = os.getenv("HF_TOKEN")
 
 llama_model, llama_tokenizer = setup_llama_model(token=token)
