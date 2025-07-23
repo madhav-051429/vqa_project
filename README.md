@@ -73,7 +73,7 @@ vqa_project/
 ├── src/
 │   ├── models/               # Model definitions
 │   ├── data/                 # Data loading utilities
-│   └── utils/                # Helper functions
+│                 
 ├── lightning_app.py          # Lightning AI orchestrator
 ├── main.py                   # Main application entry
 └── requirements.txt          # Dependencies
